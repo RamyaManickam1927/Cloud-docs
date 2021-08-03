@@ -9,7 +9,7 @@ var shelljs = require('shelljs');
  * Source shipping to gitlap
  */
 gulp.task('ship-to-gitlap', function (done) {
-  var gitPath="https://gitlab.syncfusion.com/ramya.manickam/test";
+var gitPath = 'https://' + `@gitlab.syncfusion.com/essential-studio/ej2-calendars-angular-docs`;
       var clone = shelljs.exec('git clone ' + gitPath + ' -b master'+ ' ' + `./gitlapRepo/docs`, {
             silent: false
         });
