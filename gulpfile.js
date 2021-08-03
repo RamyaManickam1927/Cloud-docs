@@ -10,4 +10,4 @@ L;
  */
 gulp.task('ship-to-gitlap', function (done) {
     console.log("ship-to-gitlab");
-    )};
+});
