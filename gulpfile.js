@@ -9,5 +9,5 @@ L;
  * Source shipping to gitlap
  */
 gulp.task('ship-to-gitlap', function (done) {
-    console.log("ship-to-gitlab);
+    console.log("ship-to-gitlab");
     )};
