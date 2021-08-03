@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var glob = require('glob');
 var shelljs = require('shelljs');
 
-L;
+
 
 /**
  * Source shipping to gitlap
