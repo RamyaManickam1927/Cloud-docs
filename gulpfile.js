@@ -23,7 +23,7 @@ gulp.task('ship-to-gitlap', function (done) {
    
        var gitPath ='https://'+`@gitlab.syncfusion.com/bold-reports/cloud-docs`;
         console.log('Clone has been started...!');
-        var clone = shelljs.exec('git clone ' + gitPath + ' -b master', {
+        var clone = shelljs.exec('git clone ' + gitPath + ' -b master'+ ' ' + `./gitlapRepo/ej2-${cloneRepos[j]}-angular-docs`, {
             silent: false
         });
         if (clone.code !== 0) {
