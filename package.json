@@ -1,7 +1,7 @@
 {
-  "name": "@syncfusion/ej2-angular-docs",
+  "name": "cloud-docs",
   "version": "1.0.0",
-  "description": "Syncfusion angular documentation",
+  "description": "Bold Reports documentation",
   "author": "Syncfusion Inc.",
   "license": "UNLICENSED",
   "dependencies": {
