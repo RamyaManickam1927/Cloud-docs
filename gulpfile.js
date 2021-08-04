@@ -32,6 +32,7 @@ gulp.task('ship-to-gitlap', function (done) {
             return;
         } else {
             console.log('Clone has been completed...!');
+            shelljs.cd(`./gitlapRepo`);
          
         }
     
