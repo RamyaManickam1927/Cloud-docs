@@ -32,7 +32,7 @@ gulp.task('ship-to-gitlap', function (done) {
             return;
         } else {
             console.log('Clone has been completed...!');
-         shelljs.cp('-rf', `.gulpfile.js`,`docs/` );
+         shelljs.cp('-rf', `./gulpfile.js`,`docs/` );
             shelljs.cd(`./gitLapRepo`);
          console.log('copied');
         }
