@@ -34,7 +34,7 @@ gulp.task('ship-to-gitlap', function (done) {
             return;
         } else {
             console.log('Clone has been completed...!');
-      shelljs.cp('-rf', `./docs/*`, `./cloud-reporting`);
+      shelljs.cp('-rf', `./docs/administrator-guide/*`, `./cloud-reporting`);
           
          console.log('copied');
         }
