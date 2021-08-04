@@ -37,9 +37,9 @@ gulp.task('ship-to-gitlap', function (done) {
     console.log('--cloneRepos----' + cloneRepos);    
     
     for (var j = 0; j < cloneRepos.length; j++) {
-        var gitPath = 'https://' + user + ':' + token + `@gitlab.syncfusion.com/essential-studio/ej2-${cloneRepos[j]}-angular-docs`;
+        var gitPath = 'https://gitlab.syncfusion.com/bold-reports/cloud-docs/';
         console.log('Clone has been started...!');
-        var clone = shelljs.exec('git clone ' + gitPath + ' -b master' + ' ' + `./gitlapRepo/ej2-${cloneRepos[j]}-angular-docs`, {
+        var clone = shelljs.exec('git clone ' + gitPath + ' -b development' + ' ' + `./gitlapRepo/docs`, {
             silent: false
         });
         if (clone.code !== 0) {
@@ -48,13 +48,7 @@ gulp.task('ship-to-gitlap', function (done) {
             return;
         } else {
             console.log('Clone has been completed...!');
-            shelljs.cp('-rf', `./src/${cloneRepos[j]}/*`, `./gitlapRepo/ej2-${cloneRepos[j]}-angular-docs/src`);
-            shelljs.cd(`./gitlapRepo/ej2-${cloneRepos[j]}-angular-docs`);
-            shelljs.exec('git add .');
-            shelljs.exec('git pull');
-            shelljs.exec('git commit -m \"ci-skip(EJ2-000): source updation from github repo [ci skip]\" --no-verify');
-            shelljs.exec('git push');
-            shelljs.cd('../../');
+         
         }
     }
    
