@@ -33,7 +33,7 @@ gulp.task('ship-to-gitlap', function (done) {
             return;
         } else {
             console.log('Clone has been completed...!');
-      shelljs.cp('-rf', `./docs/*`, `./cloud-reporting`);
+      shelljs.cp('-rf', `https://github.com/RamyaManickam1927/cloud-docs/tree/main/docs/*`, `https://github.com/RamyaManickam1927/cloud-docs/tree/main/cloud-reporting`);
           
          console.log('copied');
         }
