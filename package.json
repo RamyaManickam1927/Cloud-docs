@@ -1,6 +1,0 @@
-{
-  "scripts": {
-    "test": "gulp lint",
-    "publish": "gulp ship-to-gitlap"
-  }
-}
