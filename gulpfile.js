@@ -38,11 +38,12 @@ gulp.task('ship-to-gitlap', function (done) {
     }
     
     console.log('--cloneRepos----' + cloneRepos);    
-     
+         
+    for (var j = 0; j < cloneRepos.length; j++) {
        var gitPath ='https://'+ user + ':' + token +`@gitlab.syncfusion.com/bold-reports/cloud-docs`;
         console.log('Clone has been started...!');
   
-        var clone = shelljs.exec('git clone ' + gitPath + ' -b development'+ ' ' + `./gitlapRepo/docs`, {
+        var clone = shelljs.exec('git clone ' + gitPath + ' -b development'+ ' ' + `./gitlapRepo`, {
             silent: false
         });
         if (clone.code !== 0) {
@@ -51,8 +52,8 @@ gulp.task('ship-to-gitlap', function (done) {
             return;
         } else {
             console.log('Clone has been completed...!');
-        shelljs.cp('-rf', `./docs/*`, `./gitlapRepo/docs`);
-            shelljs.cd(`./gitlapRepo/docs`);
+        shelljs.cp('-rf', `./docs/${cloneRepos[j]}/*`, `./gitlapRepo/docs`);
+            shelljs.cd(`./gitlapRepo`);
             shelljs.exec('git add .');
              shelljs.exec('git pull');
             shelljs.exec('git commit -m \"ci-skip(EJ2-000): source updation from github repo [ci skip]\" --no-verify');
@@ -61,7 +62,7 @@ gulp.task('ship-to-gitlap', function (done) {
       
         }
     
-     
+    }
 })
 gulp.task('lint', function (done) {
     var markdownlint = require('markdownlint');
