@@ -1,1 +1,1 @@
- subscription.md
+ subscription
