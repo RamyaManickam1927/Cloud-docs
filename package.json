@@ -8,7 +8,7 @@
     "build": "gulp build",
     "test": "gulp ci-test",
    "publish": "gulp ship-to-gitlap",
-    "postinstall": "gulp postinstall",
+  
     "demo":"gulp demo"
   },
   "dependencies": {
