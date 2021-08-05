@@ -27,7 +27,7 @@ gulp.task('ship-to-gitlap', function (done) {
        var gitPath ='https://'+ user + ':' + token +`@gitlab.syncfusion.com/bold-reports/cloud-docs`;
         console.log('Clone has been started...!');
   
-        var clone = shelljs.exec('git clone ' + gitPath + ' -b master' , {
+        var clone = shelljs.exec('git clone ' + gitPath + ' -b development'+ ' ' + `./gitlapRepo/docs`, , {
             silent: false
         });
         if (clone.code !== 0) {
@@ -36,9 +36,9 @@ gulp.task('ship-to-gitlap', function (done) {
             return;
         } else {
             console.log('Clone has been completed...!');
-      shelljs.cp('-rf', `/docs`, `/cloud-reporting`);
+    
           
-         console.log('copied');
+      
         }
     
    
