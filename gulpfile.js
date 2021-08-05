@@ -51,7 +51,7 @@ gulp.task('ship-to-gitlap', function (done) {
             shelljs.cd(`./gitlapRepo`);
             shelljs.exec('git add .');
             shelljs.exec('git pull');
-            shelljs.exec('git commit -m \"ci-skip(EJ2-000): source updation from github repo [ci skip]\" --no-verify');
+            shelljs.exec('git commit -m \"feature(REPORT-8203): source updation from github repo [ci skip]\" --no-verify');
             shelljs.exec('git push');
             shelljs.cd('../../');
       
