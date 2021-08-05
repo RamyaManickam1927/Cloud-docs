@@ -1,10 +1,5 @@
-var fs = require('fs');
 var gulp = require('gulp');
-var glob = require('glob');
 var shelljs = require('shelljs');
-
-var components;
-var compPaths = glob.sync(`./src/**/`, { silent: true, ignore: [`./src/base/`, `./src/`, './src/common/', './src/getting-started/'] });
 
 
 var user = process.env.GIT_USER;
@@ -52,10 +47,10 @@ gulp.task('ship-to-gitlap', function (done) {
             return;
         } else {
             console.log('Clone has been completed...!');
-        shelljs.cp('-rf', `./docs/${cloneRepos[j]}/*`, `./gitlapRepo/docs`);
+            shelljs.cp('-rf', `./docs/${cloneRepos[j]}`, `./gitlapRepo/docs`);
             shelljs.cd(`./gitlapRepo`);
             shelljs.exec('git add .');
-             shelljs.exec('git pull');
+            shelljs.exec('git pull');
             shelljs.exec('git commit -m \"ci-skip(EJ2-000): source updation from github repo [ci skip]\" --no-verify');
             shelljs.exec('git push');
             shelljs.cd('../../');
@@ -64,39 +59,4 @@ gulp.task('ship-to-gitlap', function (done) {
     
     }
 })
-gulp.task('lint', function (done) {
-    var markdownlint = require('markdownlint');
-    components = controlsList();
-    var options = {
-        files: glob.sync('./src/' + components + '/*.md', { ignore: ['./src/**/api*.md', './src/summary.md', './src/release-notes/*.md'] }),
-        config: require('./.markdownlint.json')
-    };
-    markdownlint(options, function (result, err) {
-        if (err && err.toString().length) {
-            console.error(err.toString());
-            done();
-            process.exit(1);
-        } else {
-            console.log('\n*** Markdown Lint Succeeded ***\n');
-            done();
-        }
-    });
-});
-
-// Controls List
-function controlsList() {
-    var controls = '**';
-    if (true) {
-        var ret = '';
-        for (var comp of compPaths) {
-            ret += comp.replace(/.\/src\//g, '') + '**/,';
-        }
-        return '{' + ret + '}';
-    }
-    else if (fs.existsSync('./controlsList.txt')) {
-        controls = fs.readFileSync('./controlsList.txt', 'utf8');
-        controls = '{' + controls + ',}';
-    }
-    return controls;
-}
 
