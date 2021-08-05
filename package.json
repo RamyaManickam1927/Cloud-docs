@@ -1,0 +1,19 @@
+{
+  "name": "cloud-docs",
+  "version": "1.0.0",
+  "description": "Bold Reports documentation",
+  "author": "Syncfusion Inc.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "gulp build",
+    "test": "gulp ci-test",
+    "publish": "gulp publish",
+    "postinstall": "gulp postinstall",
+    "demo":"gulp demo"
+  },
+  "dependencies": {
+    "@boldreports/docs-helper": "*",
+    "gatsby": "2.0.50",
+    "shelljs": "^0.8.4"
+  }
+}
