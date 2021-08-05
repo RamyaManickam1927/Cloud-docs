@@ -23,7 +23,22 @@ gulp.task('ship-to-gitlap', function (done) {
     var changes = shelljs.exec(`git diff --name-only HEAD^ HEAD`);
     console.log('--changes----' + changes);
 
-   
+   var changedFileNames = changes.stdout.split('\n');
+    console.log('--changedFileNames----' + changedFileNames);
+    
+    var cloneRepos = [];
+    for (var i = 0; i < changedFileNames.length; i++) {
+        var curentRootRepo = changedFileNames[i].split('/')[1];
+//         if(curentRootRepo !='workflows'){
+//             return
+//            }
+        if (curentRootRepo != undefined && curentRootRepo !='workflows') {
+            cloneRepos.push(curentRootRepo);
+        }
+    }
+    
+    console.log('--cloneRepos----' + cloneRepos);    
+     
        var gitPath ='https://'+ user + ':' + token +`@gitlab.syncfusion.com/bold-reports/cloud-docs`;
         console.log('Clone has been started...!');
   
@@ -46,7 +61,7 @@ gulp.task('ship-to-gitlap', function (done) {
       
         }
     
-   
+     
 })
 gulp.task('lint', function (done) {
     var markdownlint = require('markdownlint');
