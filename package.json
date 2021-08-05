@@ -12,7 +12,7 @@
     "demo":"gulp demo"
   },
   "dependencies": {
-  
+    "gulp": "^3.9.1",
     "gatsby": "2.0.50",
     "shelljs": "^0.8.4"
   }
