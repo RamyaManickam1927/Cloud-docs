@@ -1,1 +1,1 @@
- subscriptionmnb
+ subscription
