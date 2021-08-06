@@ -1,1 +1,1 @@
- data-sources-management.md
+ data-sources-management
